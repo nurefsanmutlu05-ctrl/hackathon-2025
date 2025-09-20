@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HECKATHON</title>
+</head>
+<body><!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tekstil Atıkları | Sürdürülebilir Geleceğe Doğru</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2c5530;
+            --secondary-color: #4a90a4;
+            --accent-color: #f4a261;
+            --warning-color: #e76f51;
+            --success-color: #2a9d8f;
+            --text-dark: #264653;
+            --text-light: #f1faee;
+            --bg-light: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            scroll-behavior: smooth;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--text-light);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.2);
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 85, 48, 0.8), rgba(74, 144, 164, 0.8)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect width="1200" height="600" fill="%23f4a261"/><circle cx="200" cy="150" r="50" fill="%232c5530" opacity="0.1"/><circle cx="800" cy="400" r="80" fill="%234a90a4" opacity="0.1"/><circle cx="1000" cy="200" r="60" fill="%232a9d8f" opacity="0.1"/></svg>');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--text-light);
+            margin-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, var(--accent-color), var(--warning-color));
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Statistics Cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--accent-color);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--warning-color);
+            display: block;
+        }
+
+        .stat-text {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Problem Section */
+        .problem-section {
+            background: var(--bg-light);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .problem-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--warning-color);
+        }
+
+        .problem-card h3 {
+            color: var(--warning-color);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Solution Section */
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .solution-card {
+            background: linear-gradient(135deg, var(--success-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .solution-card:hover {
+            transform: scale(1.05);
+        }
+
+        .solution-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .solution-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Process Timeline */
+        .timeline {
+            position: relative;
+            margin: 3rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-color), var(--success-color));
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 2rem 0;
+            width: 50%;
+            padding: 2rem;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+            padding-right: 3rem;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 3rem;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            content: '';
+            position: absolute;
+            right: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 10px solid transparent;
+            border-left-color: white;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::after {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 10px solid transparent;
+            border-right-color: white;
+        }
+
+        .timeline-number {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            box-shadow: 0 0 0 4px white, 0 0 0 8px var(--accent-color);
+        }
+
+        /* Info Boxes */
+        .info-box {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+
+        .info-box h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Tips Section */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .tip-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-top: 3px solid var(--success-color);
+        }
+
+        .tip-card h4 {
+            color: var(--success-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: var(--text-light);
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .nav-links a {
+                padding: 0.3rem 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                left: 0 !important;
+                text-align: left !important;
+                padding-left: 4rem !important;
+                padding-right: 2rem !important;
+            }
+
+            .timeline-number {
+                left: 20px !important;
+                transform: translateX(-50%);
+            }
+
+            .timeline-content::after {
+                display: none !important;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            animation: fadeInUp 0.6s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">🌱 EkoTekstil</div>
+            <ul class="nav-links">
+                <li><a href="#anasayfa">Ana Sayfa</a></li>
+                <li><a href="#problem">Problem</a></li>
+                <li><a href="#cozumler">Çözümler</a></li>
+                <li><a href="#surecler">Süreçler</a></li>
+                <li><a href="#ipuclari">İpuçları</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="anasayfa" class="hero">
+        <div class="hero-content">
+            <h1>Tekstil Atıklarını Geleceğe Dönüştürün</h1>
+            <p>Her yıl milyonlarca ton tekstil atığı çevremize zarar veriyor. Sürdürülebilir çözümlerle bu sorunu birlikte çözebiliriz ve daha yeşil bir gelecek inşa edebiliriz.</p>
+            <a href="#problem" class="cta-button">Daha Fazla Bilgi Alın</a>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Tekstil Atıkları: Sayılarla Gerçekler</h2>
+            <p class="section-subtitle">Tekstil endüstrisinin çevre üzerindeki etkisini gösteren çarpıcı istatistikler</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">92</span>
+                    <div class="stat-text">Milyon ton tekstil atığı yıllık olarak üretiliyor</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">%85</span>
+                    <div class="stat-text">Tekstil atıklarının çöp sahalarına gönderilme oranı</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">200</span>
+                    <div class="stat-text">Yıl boyunca tekstil atıklarının doğada kalma süresi</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">%10</span>
+                    <div class="stat-text">Küresel karbon emisyonlarının tekstil sektöründen kaynaklanma oranı</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section id="problem" class="section problem-section">
+        <div class="container">
+            <h2 class="section-title">Tekstil Atıkları Neden Bu Kadar Büyük Bir Problem?</h2>
+            <p class="section-subtitle">Tekstil endüstrisinin çevre ve toplum üzerindeki olumsuz etkilerini keşfedin</p>
+            
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <h3>🌍 Çevresel Etki</h3>
+                    <p>Tekstil atıkları toprakta ve sularda mikroplastik kirliliğine neden olur. Sentetik kumaşlar parçalanırken zararlı kimyasallar salar ve ekosistemleri tehdit eder.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>💧 Su Kirliliği</h3>
+                    <p>Tekstil boyaları ve kimyasalları su kaynaklarını kirletir. Tek bir kot pantolon üretimi için yaklaşık 7.500 litre su gereklidir ve bu suyun büyük kısmı kirli şekilde doğaya karışır.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>🏭 Karbon Emisyonu</h3>
+                    <p>Tekstil sektörü, küresel karbon emisyonlarının %10'undan sorumludur. Fast fashion trendi bu durumu daha da kötüleştirmektedir.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>🗑️ Atık Yönetimi</h3>
+                    <p>Çoğu tekstil atığı geri dönüştürülemiyor ve çöp sahalarında yüzyıllar boyunca kalıyor. Bu durum hem alan israfına hem de çevresel kirliliğe yol açıyor.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>⚡ Enerji Tüketimi</h3>
+                    <p>Tekstil üretimi yoğun enerji gerektirir. Özellikle sentetik kumaşların üretiminde fosil yakıt tüketimi çok yüksektir.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>👥 Sosyal Etki</h3>
+                    <p>Ucuz tekstil üretimi genellikle kötü çalışma koşullarına ve adil olmayan ücretlendirmeye yol açar. Çevresel sorunlar sosyal adaletsizliği de beraberinde getirir.</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h3>💡 Biliyorsunuz ki...</h3>
+                <p>Ortalama bir kişi yılda 11 kg tekstil atığı üretir ve bunun sadece %15'i geri dönüştürülür veya yeniden kullanılır. Geri kalan %85'i çöp sahalarına gönderilir veya yakılır. Bu durum hem çevresel hem de ekonomik bir kayıptır çünkü tekstil atıkları değerli hammadde kaynaklarını temsil eder.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="cozumler" class="section">
+        <div class="container">
+            <h2 class="section-title">Sürdürülebilir Çözümler ve İnovasyonlar</h2>
+            <p class="section-subtitle">Tekstil atıkları sorununa karşı geliştirilen modern çözümleri keşfedin</p>
+            
+            <div class="solution-grid">
+                <div class="solution-card">
+                    <div class="solution-icon">♻️</div>
+                    <h3>Geri Dönüşüm</h3>
+                    <p>Mekanik ve kimyasal geri dönüşüm yöntemleriyle tekstil atıkları yeni ürünlere dönüştürülüyor. Fiber-to-fiber teknolojisi sayesinde kaliteli yeni kumaşlar üretiliyor.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">🔄</div>
+                    <h3>Döngüsel Ekonomi</h3>
+                    <p>Take-back programları ve kiralama modelleriyle ürün yaşam döngüsü uzatılıyor. Markalar kendi ürünlerini geri alarak yeniden değerlendiriyor.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">🧬</div>
+                    <h3>Biyomateryaller</h3>
+                    <p>Mantar deri, deniz yosunu fiber ve lab-grown pamuk gibi sürdürülebilir alternatif materyaller geliştiriliyor.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">🤖</div>
+                    <h3>Yapay Zeka ve Teknoloji</h3>
+                    <p>AI destekli tasarım araçları atık miktarını azaltıyor. Blockchain teknolojisi şeffaf tedarik zinciri sağlıyor.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">🌱</div>
+                    <h3>Yeşil Üretim</h3>
+                    <p>Su bazlı boyalar, organik materyaller ve yenilenebilir enerji kullanımıyla çevre dostu üretim süreçleri benimseniyor.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">📊</div>
+                    <h3>Yaşam Döngüsü Analizi</h3>
+                    <p>Ürünlerin çevresel etkisi baştan sona ölçülüyor ve sürekli iyileştirme yapılıyor. LCA araçları sürdürülebilirlik kararlarını destekliyor.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Timeline -->
+    <section id="surecler" class="section problem-section">
+        <div class="container">
+            <h2 class="section-title">Tekstil Geri Dönüşüm Süreci</h2>
+            <p class="section-subtitle">Atık tekstilden yeni ürüne: Adım adım süreç</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-number">1</div>
+                    <div class="timeline-content">
+                        <h3>Toplama ve Ayırma</h3>
+                        <p>Tekstil atıkları toplanır ve türlerine göre ayrılır. Pamuk, yün, sentetik lifler gibi farklı materyaller sınıflandırılır. Bu aşama geri dönüşüm kalitesini belirler.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">2</div>
+                    <div class="timeline-content">
+                        <h3>Temizlik ve Ön İşlem</h3>
+                        <p>Kumaşlar yıkanır, renkler giderilir ve metal aksesuarlar çıkarılır. Kimyasal artıklar temizlenir ve materyaller işleme hazır hale getirilir.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">3</div>
+                    <div class="timeline-content">
+                        <h3>Parçalama ve Öğütme</h3>
+                        <p>Tekstiller küçük parçalara ayrılır ve özel makinelerle fiber haline getirilir. Bu işlem mekanik veya kimyasal yöntemlerle yapılabilir.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">4</div>
+                    <div class="timeline-content">
+                        <h3>Yeniden İplik Üretimi</h3>
+                        <p>Elde edilen fiberler temizlenir, karıştırılır ve yeni iplik haline getirilir. Bazen virgin fiberlerle karıştırılarak kalite artırılır.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">5</div>
+                    <div class="timeline-content">
+                        <h3>Kumaş Üretimi</h3>
+                        <p>Yeni iplikler dokuma veya örme makinelerinde kumaş haline getirilir. Bu kumaşlar geleneksel kumaşlarla aynı kalitede olabilir.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">6</div>
+                    <div class="timeline-content">
+                        <h3>Son Ürün İmalatı</h3>
+                        <p>Geri dönüştürülmüş kumaşlar yeni giysiler, ev tekstili veya endüstriyel ürünlere dönüştürülür. Sürdürülebilir moda döngüsü tamamlanır.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section id="ipuclari" class="section">
+        <div class="container">
+            <h2 class="section-title">Bireysel Olarak Neler Yapabilirsiniz?</h2>
+            <p class="section-subtitle">Günlük hayatınızda uygulayabileceğiniz pratik çözümler</p>
+            
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h4>🛍️ Bilinçli Alışveriş</h4>
+                    <p>Kaliteli, uzun ömürlü kıyafetler tercih edin. Fast fashion yerine sürdürülebilir markaları destekleyin.</p>
+                </div>
+                <div class="tip-card">
+                    <h4>🧵 Onarım ve Bakım</h4>
+                    <p>Kıyafetlerinizi düzenli olarak onarın. Küçük yırtıklar ve eksik düğmeler için atık yerine tamir edin.</p>
+                </div>
+                <div class="tip-card">
+                    <h4>👗 Yeniden Kullanım</h4>
+                    <p>Eski kıyafetleri farklı amaçlarla kullanın. Tişörtler temizlik bezi, kot pantolonlar bahçe önlüğü olabilir.</p>
+                </div>
+                <div class="tip-card">
+                    <h4>🔄 Değişim ve Paylaşım</h4>
+                    <p>Kıyafet takas etkinliklerine katılın. Arkadaşlarınızla kıyafet değişimi yapın.</p>
+                </div>
+                <div class="tip-card">
+                    <h4>♻️ Geri Dönüşüm</h4>
+                    <p>Artık kullanmadığınız tekstilleri geri dönüşüm kutularına bırakın. H&M, Zara gibi mağazalar toplama yapıyor.</p>
+                </div>
+                <div class="tip-card">
+                    <h4>📚 Bilgilendirme</h4>
+                    <p>Çevrenizdeki insanları tekstil atıkları konusunda bilinçlendirin. Sosyal medyada farkındalık yaratın.</p>
+                </div>
+                <div class="tip-card">
+                    <h4>🧺 Doğru Yıkama</h4>
+                    <p>Kıyafetlerinizi soğuk suda yıkayın ve hava ile kurutun. Bu hem enerji tasarrufu hem de kumaş ömrü sağlar.</p>
+                </div>
+                <div class="tip-card">
+                    <h4>🎨 Yaratıcılık</h4>
+                    <p>DIY projelerle eski kıyafetleri yeniden tasarlayın. YouTube'da birçok yaratıcı fikir bulabilirsiniz.</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h3>🏆 Başarı Hikayeleri</h3>
+                <p><strong>Patagonia:</strong> "Worn Wear" programıyla müşterilerinin eski kıyafetlerini tamir ediyor ve yeniden satışa sunuyor.</p>
+                <br>
+                <p><strong>H&M:</strong> 2013'ten beri 29.000 ton tekstil atığı topladı ve geri dönüştürdü.</p>
+                <br>
+                <p><strong>Adidas:</strong> Okyanus plastiklerinden spor ayakkabı üretiyor ve sürdürülebilirlik konusunda öncülük yapıyor.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+</body>
+</html>
+
+
+
